@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+
+   <!-- Initialization for data source -->
+   <bean id="dataSource" 
+      class="org.apache.tomcat.jdbc.pool.DataSource">
+      <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="url" value="jdbc:sqlserver://localhost:2009;databaseName=Movie"/>
+      <property name="username" value="sasa"/>
+      <property name="password" value="lunar1"/>
+   </bean>
+
+   <!-- Definition for studentJDBCTemplate bean -->
+   <bean id="MovieJDBCTemplate" 
+      class="edu.ccsu.MovieJDBCTemplate">
+      <property name="dataSource"  ref="dataSource" />    
+   </bean>
+   <bean id="UserJDBCTemplate" 
+      class="edu.ccsu.UserJDBCTemplate">
+      <property name="dataSource"  ref="dataSource" />    
+   </bean>
+      
+</beans>
