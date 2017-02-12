@@ -15,11 +15,11 @@
 
    <!-- Definition for studentJDBCTemplate bean -->
    <bean id="MovieJDBCTemplate" 
-      class="edu.ccsu.MovieJDBCTemplate">
+      class="edu.ccsu.dao.MovieJDBCTemplate">
       <property name="dataSource"  ref="dataSource" />    
    </bean>
    <bean id="UserJDBCTemplate" 
-      class="edu.ccsu.UserJDBCTemplate">
+      class="edu.ccsu.dao.UserJDBC">
       <property name="dataSource"  ref="dataSource" />    
    </bean>
       

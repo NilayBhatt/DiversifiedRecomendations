@@ -3,6 +3,7 @@ package edu.ccsu.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,9 @@ import edu.ccsu.model.User;
 
 @RestController
 public class UserController {
+
 	@CrossOrigin
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginV", method = RequestMethod.POST)
 	public void implLogin(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("loginBean") User loginBean) {
 		UserJDBC userJDBC = new UserJDBC();
@@ -25,10 +27,10 @@ public class UserController {
 				System.out.println("User Login Successful");
 				request.setAttribute("loggedInUser", loginBean.getUserName());
 				response.sendRedirect("/table.jsp");
-				//model = new ModelAndView("welcome");
+				// model = new ModelAndView("welcome");
 			} else {
-				//model = new ModelAndView("login");
-				//model.addObject("loginBean", loginBean);
+				// model = new ModelAndView("login");
+				// model.addObject("loginBean", loginBean);
 				request.setAttribute("message", "Invalid credentials!!");
 				response.sendRedirect("/login.jsp");
 			}
@@ -36,8 +38,5 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		
 	}
-
 }
