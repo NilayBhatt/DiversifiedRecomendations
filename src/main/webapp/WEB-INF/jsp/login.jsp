@@ -54,8 +54,8 @@
 							modelAttribute="loginBean">
 							<div class="form-group">
 								<label>Enter your user-name</label> <input type="text"
-									class="form-control" id="username" name="username"
-									path="username" />
+									class="form-control" id="userName" name="userName"
+									path="userName" />
 							</div>
 							<div class="form-group">
 								<label>Please enter your password</label> <input type="password"

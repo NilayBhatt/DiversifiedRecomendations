@@ -16,5 +16,9 @@ public class HomeController {
 	public String login(){		
 		return "login";
 	}
-
+	
+	@RequestMapping("/table")
+	public String tablePage() {
+		return "table";
+	}
 }

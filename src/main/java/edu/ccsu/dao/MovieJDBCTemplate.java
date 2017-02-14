@@ -3,9 +3,7 @@ package edu.ccsu.dao;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 import edu.ccsu.controller.MovieMapper;
 import edu.ccsu.model.Movie;

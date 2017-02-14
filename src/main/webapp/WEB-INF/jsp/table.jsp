@@ -3,7 +3,7 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,22 +14,36 @@
 	href="<c:url value="resources/vendor/bootstrap/css/bootstrap.min.css" />" />
 
 <!-- MetisMenu CSS -->
-<link href="<c:url value="resources/vendor/metisMenu/metisMenu.min.css"/>" rel="stylesheet">
+<link
+	href="<c:url value="resources/vendor/metisMenu/metisMenu.min.css"/>"
+	rel="stylesheet">
 
 <!-- DataTables CSS -->
 
-<link href="<c:url value="resources/vendor/datatables-plugins/dataTables.bootstrap.css" />" rel="stylesheet">
+<link
+	href="<c:url value="resources/vendor/datatables-plugins/dataTables.bootstrap.css" />"
+	rel="stylesheet">
 
 <!-- DataTables Responsive CSS -->
 
-<link href="<c:url value="resources/vendor/datatables-responsive/dataTables.responsive.css"/>" rel="stylesheet">
+<link
+	href="<c:url value="resources/vendor/datatables-responsive/dataTables.responsive.css"/>"
+	rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="<c:url value="resources/dist/css/sb-admin-2.css" />" rel="stylesheet">
+<link href="<c:url value="resources/dist/css/sb-admin-2.css" />"
+	rel="stylesheet">
 
 <!-- Custom Fonts -->
 
-<link href="<c:url value="resources/vendor/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
+<link
+	href="<c:url value="resources/vendor/font-awesome/css/font-awesome.min.css"/>"
+	rel="stylesheet" type="text/css">
+<script type="text/javascript"
+	src="<c:url value="resources/vendor/jquery/jquery.min.js"/>"></script>
+<script
+	src="<c:url value="resources/vendor/bootstrap/js/bootstrap.min.js" />"></script>
+
 </head>
 <title>Movies</title>
 </head>
@@ -335,64 +349,92 @@
 	</div>
 	<!-- /#wrapper -->
 
-	<script type="text/javascript" src="<c:url value="resources/vendor/jquery/jquery.min.js"/>"></script>
+	<div class="modal fade" id="ratingsModal" role="dialog">
+		<div class="modal-dialog">
+			<form id="ratingForm" method="post" action="userRated"
+				modelAttribute="ratingBean">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 id="movieTitle" class="modal-title"></h3>
+					</div>
+					<div class="modal-body">
+						<h5 class="text-center">Type a number from 1-10</h5>
+						<div class="form-group">
+							<input type="hidden" class="form-control" name="movieID"
+								id="movieID">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="userRating"
+								path="userRating" id="userRating">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" id="userRateSubmit" class="btn btn-success ">Submit!</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</form>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
 	<!-- Metis Menu Plugin JavaScript -->
-	
-	<script src="<c:url value="resources/vendor/metisMenu/metisMenu.min.js" />"></script>
+
+
+	<script
+		src="<c:url value="resources/vendor/metisMenu/metisMenu.min.js" />"></script>
 
 	<!-- DataTables JavaScript -->
-	
-	<script src="<c:url value="resources/vendor/datatables/js/jquery.dataTables.min.js"/>"></script>
 
-	
-	<script src="<c:url value="resources/vendor/datatables-plugins/dataTables.bootstrap.min.js"/>"></script>
+	<script
+		src="<c:url value="resources/vendor/datatables/js/jquery.dataTables.min.js"/>"></script>
 
-	
-	<script src="<c:url value="resources/vendor/datatables-responsive/dataTables.responsive.js"/>"></script>
+
+	<script
+		src="<c:url value="resources/vendor/datatables-plugins/dataTables.bootstrap.min.js"/>"></script>
+
+
+	<script
+		src="<c:url value="resources/vendor/datatables-responsive/dataTables.responsive.js"/>"></script>
 
 	<!-- Custom Theme JavaScript -->
-	
+
 	<script src="<c:url value="resources/dist/js/sb-admin-2.js" />"></script>
 
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 	<script>
-					$(document)
-							.ready(
-									function() {
-										var table = $('#dataTables-example')
-												.DataTable(
-														{
-															"ajax" : {
-																"datatype" : "jsonp",
-																"url" : "http://localhost:8080/movie",
-																crossDomain : true,
-																contentType : 'application/json; charset=utf-8',
-															},
-															responsive : true,
-															"deferRender" : true,
-															"fnCreatedRow" : function(
-																	nRow,
-																	aData,
-																	iDataIndex) {
-																$(nRow)
-																		.attr(
-																				'id',
-																				aData[0]);
-															}
-														//"sScrollX" : "100%"
-														});
+		$(document).ready(function() {
+			var movieID;
+			var table = $('#dataTables-example').DataTable({
+				"ajax" : {
+					"datatype" : "jsonp",
+					"url" : "http://localhost:8080/movie",
+					crossDomain : true,
+					contentType : 'application/json; charset=utf-8',
+				},
+				responsive : true,
+				"deferRender" : true,
+				"fnCreatedRow" : function(nRow, aData, iDataIndex) {
+					$(nRow).attr('id', aData[0]);
+				}
+			//"sScrollX" : "100%"
+			});
 
-										$('#dataTables-example tbody').on(
-												'click',
-												'tr',
-												function() {
-													var data = table.row(this)
-															.data();
-													alert('You clicked on '
-															+ data[1]
-															+ '\'s row');
-												});
-									});
-				</script>
+			$('#dataTables-example tbody').on('click', 'tr', function() {
+				var data = table.row(this).data();
+				movieID = data[0];
+				$('#movieTitle').html("Rate " + data[1]);
+				$('#movieID').val(movieID);
+				$('#ratingsModal').modal('show');
+				//alert('You clicked on ' + data[0] + '\'s row');
+			});
+
+			$('#userRatingSubmit').on('click', function() {
+
+			});
+		});
+	</script>
 </body>
 </html>
