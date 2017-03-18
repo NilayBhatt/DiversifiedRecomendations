@@ -21,7 +21,7 @@ import weka.core.Instances;
 public class DataPivoter {
 
 	private SortedSet<Integer> movieIds = new TreeSet();
-	private Map<String, Set<AttributeValuePair<Integer>>> userRatings = new HashMap();
+	private Map<String, Set<AttributeValuePair<Double>>> userRatings = new HashMap();
 
 	public DataPivoter() {
 
@@ -35,12 +35,12 @@ public class DataPivoter {
 			String line = reader.readLine();
 			while (line != null) {
 				String[] parts = line.split("\t");
-				Set<AttributeValuePair<Integer>> ratings = userRatings.get(parts[0]);
+				Set<AttributeValuePair<Double>> ratings = userRatings.get(parts[0]);
 				if (ratings == null) {
 					ratings = new HashSet();
 					userRatings.put(parts[0], ratings);
 				}
-				ratings.add(new AttributeValuePair(parts[1], Integer.parseInt(parts[2])));
+				ratings.add(new AttributeValuePair(parts[1], Double.parseDouble(parts[2])));
 
 				movieIds.add(Integer.parseInt(parts[1]));
 				line = reader.readLine();
@@ -64,12 +64,12 @@ public class DataPivoter {
 			}
 			Instances instances = new Instances("MovieRatings", attributes, userRatings.size());
 			for (String userId : userRatings.keySet()) {
-				Set<AttributeValuePair<Integer>> ratings = userRatings.get(userId);
+				Set<AttributeValuePair<Double>> ratings = userRatings.get(userId);
 				Instance instance = new DenseInstance(attributes.size());
 				instance.setDataset(instances);
 				instance.setValue(0, userId);
-				for (AttributeValuePair<Integer> ratingPair : ratings) {
-					instance.setValue(attributeNameIndexMap.get(ratingPair.attrName), ratingPair.value);
+				for (AttributeValuePair<Double> ratingPair : ratings) {
+					instance.setValue(attributeNameIndexMap.get(ratingPair.attrName).intValue(), ratingPair.value);
 					// System.out.println("Set attribute:
 					// "+attributeNameIndexMap.get(ratingPair.attrName)+"
 					// value:"+ratingPair.value);
@@ -77,8 +77,8 @@ public class DataPivoter {
 				instances.add(instance);
 			}
 			// Print header and instances.
-			// System.out.println("\nDataset:\n");
-			// System.out.println(instances);
+			//System.out.println("\nDataset:\n");
+			//System.out.println(instances);
 			FileWriter writer = new FileWriter(destinationFile);
 			writer.write(instances.toString());
 			writer.flush();

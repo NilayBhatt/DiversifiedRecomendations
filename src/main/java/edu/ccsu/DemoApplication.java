@@ -1,11 +1,16 @@
 package edu.ccsu;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+
+import edu.ccsu.helper.DataPivoter;
 
 @EnableAutoConfiguration 
 @Configuration 
@@ -14,6 +19,12 @@ import org.springframework.context.annotation.Configuration;
 public class DemoApplication {
 
 	public static void main(String[] args) {
+//		DataPivoter dp = new DataPivoter();		
+//		try {
+//			dp.loadDataFile(new File("src/main/resources/data/user_ratedmovies_RatingsOnly.dat"), "src/main/resources/data/user_ratedmovies.arff");
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		}
 		SpringApplication.run(DemoApplication.class, args);
 	}
 	

@@ -21,7 +21,6 @@ public class UserJDBC implements UserDAO {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 
-	@Override
 	public boolean validateUser(User user) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Select * from users where username = '");
@@ -33,27 +32,45 @@ public class UserJDBC implements UserDAO {
 		try {
 			List<User> users = jdbcTemplateObject.query(sb.toString(), new UserMapper());
 			if (users.size() > 0)
-				
+
 				return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return false;
 	}
-	
+
 	public boolean insertRating(Rating rating) {
-		
+
 		String sql = "Insert INTO userMovieRating (userName, movieID, rating) Values (?,?,?)";
 
 		try {
-			jdbcTemplateObject.update(sql, new Object[] { rating.getUserName(),
-					rating.getMovieID(),Integer.parseInt(rating.getUserRating())});				
-				return true;
+			jdbcTemplateObject.update(sql, new Object[] { rating.getUserName(), rating.getMovieID(),
+					Integer.parseInt(rating.getUserRating()) });
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
+		return false;
+	}
+
+	public boolean insertNewUser(User user) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("INSERT INTO Users (userName, LastName, userPassword) VALUES (?, ?, ?)");
+
+		try {
+			int users = jdbcTemplateObject.update(sql.toString(),
+					new Object[] { user.getUserName(), user.getLastName(), user.getPassword() });
+			if (users > 0)
+
+				return true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 }

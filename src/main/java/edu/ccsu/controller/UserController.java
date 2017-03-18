@@ -19,23 +19,24 @@ import edu.ccsu.model.User;
 @RestController
 public class UserController {
 
+	private ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+	private UserJDBC userJDBC = (UserJDBC) context.getBean("UserJDBC");
+	
 	@CrossOrigin
 	@RequestMapping(value = "/loginV", method = RequestMethod.POST)
 	public void implLogin(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("loginBean") User loginBean) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-		UserJDBC userJDBC = (UserJDBC) context.getBean("UserJDBC");
+		
 		try {
-			boolean isValidUser = userJDBC.validateUser(loginBean);
-			if (isValidUser) {
+			if (this.userJDBC.validateUser(loginBean)) {
 				System.out.println("User Login Successful");
 				HttpSession session = request.getSession();
 				session.setAttribute("loggedInUser", loginBean.getUserName());
 
-				//return redirect();
+				// return redirect();
 				response.sendRedirect("/table");
 			} else {
-				request.setAttribute("message", "Invalid credentials!!");			
+				request.setAttribute("message", "Invalid credentials!!");
 				response.sendRedirect("/login");
 			}
 
@@ -43,24 +44,42 @@ public class UserController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@CrossOrigin
 	@RequestMapping(value = "/userRated", method = RequestMethod.POST)
 	public void userRating(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("ratingBean") Rating ratingBean) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-		UserJDBC userJDBC = (UserJDBC) context.getBean("UserJDBC");
-		
-		try{
-			ratingBean.setUserName((String)request.getSession().getAttribute("loggedInUser"));
-			if(userJDBC.insertRating(ratingBean)) {
+		try {
+			ratingBean.setUserName((String) request.getSession().getAttribute("loggedInUser"));
+			
+			if (this.userJDBC.insertRating(ratingBean)) {
 				response.sendRedirect("/table");
 			}
-		} catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
+	@CrossOrigin
+	@RequestMapping(value = "/signUpUser", method = RequestMethod.POST)
+	public void newUser(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("signUpBean") User signUpBean) {
+
+		try {
+			
+			if (this.userJDBC.insertNewUser(signUpBean)) {
+				HttpSession session = request.getSession();
+				session.setAttribute("loggedInUser", signUpBean.getUserName());
+
+				// return redirect();
+				response.sendRedirect("/table");
+			} else {
+				request.setAttribute("message", "Please Try Again");
+				response.sendRedirect("/login");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

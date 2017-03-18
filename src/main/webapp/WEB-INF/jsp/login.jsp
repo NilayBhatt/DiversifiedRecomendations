@@ -39,6 +39,7 @@
 <link
 	href="<c:url value="resources/vendor/font-awesome/css/font-awesome.min.css"/>"
 	rel="stylesheet" type="text/css">
+
 <title>login</title>
 </head>
 <body>
@@ -63,23 +64,63 @@
 									path="password" />
 							</div>
 							<input class="btn btn-lg btn-success btn-block" type="submit"
-								value="Submit" />
-							</form>
+								value="Login" />
+						</form>
+						<button type="button" class="btn btn-block btn-lg btn-warning"
+							id="signUp">Sign Up!</button>
 					</div>
 				</div>
 			</div>
+			<div class="modal fade" id="signUpModal" role="dialog">
+							<div class="modal-dialog">
+								<form id="signUpForm" method="post" action="signUpUser"
+									modelAttribute="userBean">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h3 id="signUp_Title" class="modal-title">Create an
+												Account</h3>
+										</div>
+										<div class="modal-body">
+											<div class="form-gorup">
+												<label for="user-name" class="control-label">User
+													Name:</label> <input type="text" name="userName" class="form-control" id="userName">
+											</div>
+											<div class="form-gorup">
+												<label for="last-name" class="control-label">User Last
+													Name:</label> <input type="text" name="lastName" class="form-control" id="lastName">
+											</div>
+											<div class="form-group">
+											<label for="last-name" class="control-label">Password: </label> 
+												<input type="password" class="form-control"
+													name="password" path="password" id="userPassword">
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" id="userRateSubmit"
+												class="btn btn-success ">SignUp!</button>
+											<button type="button" class="btn btn-primary"
+												data-dismiss="modal">Cancel</button>
+										</div>
+									</div>
+								</form>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal-dialog -->
+						</div>
 		</div>
 	</div>
-	<script type="text/javascript"
-		src="<c:url value="resources/vendor/jquery/jquery.min.js"/>"></script>
+<script type="text/javascript"
+	src="<c:url value="resources/vendor/jquery/jquery.min.js"/>"></script>
+<script
+	src="<c:url value="resources/vendor/bootstrap/js/bootstrap.min.js" />"></script>
+	
 	<!-- Metis Menu Plugin JavaScript -->
-
 	<script
 		src="<c:url value="resources/vendor/metisMenu/metisMenu.min.js" />"></script>
 
 	<!-- DataTables JavaScript -->
 
-	<script
+<%-- 	<script
 		src="<c:url value="resources/vendor/datatables/js/jquery.dataTables.min.js"/>"></script>
 
 
@@ -93,5 +134,13 @@
 	<!-- Custom Theme JavaScript -->
 
 	<script src="<c:url value="resources/dist/js/sb-admin-2.js" />"></script>
+ --%>
+ 	<script>
+		$(document).ready(function() {
+			$('#signUp').on('click', function() {
+				$('#signUpModal').modal('show');
+			});
+		});
+	</script>
 </body>
 </html>
