@@ -22,5 +22,9 @@
       class="edu.ccsu.dao.UserJDBC">
       <property name="dataSource"  ref="dataSource" />    
    </bean>
+   <bean id="HelperJDBC" 
+      class="edu.ccsu.dao.HelperJDBC">
+      <property name="dataSource"  ref="dataSource" />    
+   </bean>
       
 </beans>

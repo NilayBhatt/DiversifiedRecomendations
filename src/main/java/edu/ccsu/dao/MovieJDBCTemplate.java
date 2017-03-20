@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import edu.ccsu.controller.MovieMapper;
+import edu.ccsu.helper.MovieMapper;
 import edu.ccsu.model.Movie;
 
 public class MovieJDBCTemplate implements MovieDAO {

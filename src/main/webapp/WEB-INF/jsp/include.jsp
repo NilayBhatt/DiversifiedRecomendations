@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<head> 
+<head>
+
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="resources/vendor/bootstrap/css/bootstrap.min.css" />" />
 
@@ -48,12 +49,13 @@
 </head>
 
 <body>
-	<jsp:include page="include.jsp" />
 
-	<!--<div id="wrapper">
-		
-		<nav class="navbar navbar-default navbar-static-top" role="navigation"
-			style="margin-bottom: 0">
+	 --%>
+<div id="wrapper">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation"
+		style="margin-bottom: 0">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
 				data-target=".navbar-collapse">
@@ -63,7 +65,7 @@
 			</button>
 			<a class="navbar-brand" href="index.html">SB Admin v2.0</a>
 		</div>
-		/.navbar-header
+		<!-- /.navbar-header -->
 
 		<ul class="nav navbar-top-links navbar-right">
 			<li class="dropdown"><a class="dropdown-toggle"
@@ -104,7 +106,8 @@
 					<li><a class="text-center" href="#"> <strong>Read
 								All Messages</strong> <i class="fa fa-angle-right"></i>
 					</a></li>
-				</ul> /.dropdown-messages</li> /.dropdown
+				</ul> <!-- /.dropdown-messages --></li>
+			<!-- /.dropdown -->
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"> <i class="fa fa-tasks fa-fw"></i>
 					<i class="fa fa-caret-down"></i>
@@ -177,7 +180,8 @@
 					<li><a class="text-center" href="#"> <strong>See
 								All Tasks</strong> <i class="fa fa-angle-right"></i>
 					</a></li>
-				</ul> /.dropdown-tasks</li> /.dropdown
+				</ul> <!-- /.dropdown-tasks --></li>
+			<!-- /.dropdown -->
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"> <i class="fa fa-bell fa-fw"></i>
 					<i class="fa fa-caret-down"></i>
@@ -221,7 +225,8 @@
 					<li><a class="text-center" href="#"> <strong>See
 								All Alerts</strong> <i class="fa fa-angle-right"></i>
 					</a></li>
-				</ul> /.dropdown-alerts</li> /.dropdown
+				</ul> <!-- /.dropdown-alerts --></li>
+			<!-- /.dropdown -->
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i>
 					<i class="fa fa-caret-down"></i>
@@ -234,9 +239,10 @@
 					<li class="divider"></li>
 					<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
 							Logout</a></li>
-				</ul> /.dropdown-user</li> /.dropdown
+				</ul> <!-- /.dropdown-user --></li>
+			<!-- /.dropdown -->
 		</ul>
-		/.navbar-top-links
+		<!-- /.navbar-top-links -->
 
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
@@ -249,7 +255,7 @@
 									<i class="fa fa-search"></i>
 								</button>
 							</span>
-						</div> /input-group
+						</div> <!-- /input-group -->
 					</li>
 					<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>
 							Dashboard</a></li>
@@ -258,7 +264,7 @@
 						<ul class="nav nav-second-level">
 							<li><a href="flot.html">Flot Charts</a></li>
 							<li><a href="morris.html">Morris.js Charts</a></li>
-						</ul> /.nav-second-level</li>
+						</ul> <!-- /.nav-second-level --></li>
 					<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>
 							Tables</a></li>
 					<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>
@@ -272,7 +278,7 @@
 							<li><a href="typography.html">Typography</a></li>
 							<li><a href="icons.html"> Icons</a></li>
 							<li><a href="grid.html">Grid</a></li>
-						</ul> /.nav-second-level</li>
+						</ul> <!-- /.nav-second-level --></li>
 					<li><a href="#"><i class="fa fa-sitemap fa-fw"></i>
 							Multi-Level Dropdown<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
@@ -284,99 +290,24 @@
 									<li><a href="#">Third Level Item</a></li>
 									<li><a href="#">Third Level Item</a></li>
 									<li><a href="#">Third Level Item</a></li>
-								</ul> /.nav-third-level</li>
-						</ul> /.nav-second-level</li>
+								</ul> <!-- /.nav-third-level --></li>
+						</ul> <!-- /.nav-second-level --></li>
 					<li><a href="#"><i class="fa fa-files-o fa-fw"></i> Sample
 							Pages<span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 							<li><a href="blank.html">Blank Page</a></li>
 							<li><a href="login.html">Login Page</a></li>
-						</ul> /.nav-second-level</li>
+						</ul> <!-- /.nav-second-level --></li>
 				</ul>
 			</div>
-			/.sidebar-collapse
+			<!-- /.sidebar-collapse -->
 		</div>
-		/.navbar-static-side </nav>
-		-->
-	<div id="page-wrapper">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Tables</h1>
-			</div>
-			<!-- /.col-lg-12 -->
-		</div>
-		<!-- /.row -->
-		<div class="row">
-			<div class="col-lg-12">
-				<table width="100%"
-					class="table table-striped table-bordered table-hover"
-					id="dataTables-example">
-					<thead>
-						<th>id</th>
-						<th>title</th>
-						<th>imdbID</th>
-						<th>spanishTitle</th>
-						<th>imdbPictureURL</th>
-						<th>year</th>
-						<th>rtID</th>
-						<th>rtAllCriticsRating</th>
-						<th>rtAllCriticsNumReviews</th>
-						<th>rtAllCriticsNumFresh</th>
-						<th>rtAllCriticsNumRotten</th>
-						<th>rtAllCriticsScore</th>
-						<th>rtTopCriticsRating</th>
-						<th>rtTopCriticsNumReviews</th>
-						<th>rtTopCriticsNumFresh</th>
-						<th>rtTopCriticsNumRotten</th>
-						<th>rtTopCriticsScore</th>
-						<th>rtAudienceRating</th>
-						<th>rtAudienceNumRatings</th>
-						<th>rtAudienceScore</th>
-						<th>rtPictureURL</th>
-					</thead>
-				</table>
-			</div>
-			<!-- /.table-responsive -->
 
-			<!-- /.col-lg-12 -->
-		</div>
-	</div>
-	</div>
-	<!-- /#wrapper -->
-
-	<div class="modal fade" id="ratingsModal" role="dialog">
-		<div class="modal-dialog">
-			<form id="ratingForm" method="post" action="userRated"
-				modelAttribute="ratingBean">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h3 id="movieTitle" class="modal-title"></h3>
-					</div>
-					<div class="modal-body">
-						<h5 class="text-center">Type a number from 1-10</h5>
-						<div class="form-group">
-							<input type="hidden" class="form-control" name="movieID"
-								id="movieID">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" name="userRating"
-								path="userRating" id="userRating">
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="submit" id="userRateSubmit" class="btn btn-success ">Submit!</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-					</div>
-				</div>
-			</form>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal-dialog -->
-	</div>
-	<!-- /.modal -->
-
-	<!-- Metis Menu Plugin JavaScript -->
-
+		<!-- /.navbar-static-side -->
+	</nav>
+</div>
+<!-- Metis Menu Plugin JavaScript -->
+<%-- 
 
 	<script
 		src="<c:url value="resources/vendor/metisMenu/metisMenu.min.js" />"></script>
@@ -397,39 +328,5 @@
 	<!-- Custom Theme JavaScript -->
 
 	<script src="<c:url value="resources/dist/js/sb-admin-2.js" />"></script>
-
-	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-	<script>
-		$(document).ready(function() {
-			var movieID;
-			var table = $('#dataTables-example').DataTable({
-				"ajax" : {
-					"datatype" : "jsonp",
-					"url" : "http://localhost:8080/movie",
-					crossDomain : true,
-					contentType : 'application/json; charset=utf-8',
-				},
-				responsive : true,
-				"deferRender" : true,
-				"fnCreatedRow" : function(nRow, aData, iDataIndex) {
-					$(nRow).attr('id', aData[0]);
-				}
-			//"sScrollX" : "100%"
-			});
-
-			$('#dataTables-example tbody').on('click', 'tr', function() {
-				var data = table.row(this).data();
-				movieID = data[0];
-				$('#movieTitle').html("Rate " + data[1]);
-				$('#movieID').val(movieID);
-				$('#ratingsModal').modal('show');
-				//alert('You clicked on ' + data[0] + '\'s row');
-			});
-
-			$('#userRatingSubmit').on('click', function() {
-
-			});
-		});
-	</script>
-</body>
-</html>
+ </body>
+</html>--%>

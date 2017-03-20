@@ -56,5 +56,12 @@ public class WekaIBk implements MiningAlgorithm {
 			e.printStackTrace();
 		}
 	}
+	
+	/*private Instance instanceToRecommend(Instances trainingInstances, String userID) {
+		Instance instanceToEvaluate = new DenseInstance(trainingInstances.numAttributes());
+	    instanceToEvaluate.setDataset(trainingInstances);
+		
+		return new Instance();
+	}*/
 
 }

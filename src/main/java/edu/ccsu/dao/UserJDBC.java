@@ -6,7 +6,7 @@ import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import edu.ccsu.controller.UserMapper;
+import edu.ccsu.helper.UserMapper;
 import edu.ccsu.model.Rating;
 import edu.ccsu.model.User;
 

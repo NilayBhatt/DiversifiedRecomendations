@@ -1,4 +1,4 @@
-package edu.ccsu.controller;
+package edu.ccsu.helper;
 
 import edu.ccsu.model.*;
 import java.sql.ResultSet;
