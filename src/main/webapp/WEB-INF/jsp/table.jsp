@@ -413,7 +413,14 @@
 				"deferRender" : true,
 				"fnCreatedRow" : function(nRow, aData, iDataIndex) {
 					$(nRow).attr('id', aData[0]);
-				}
+				},
+				"columnDefs": [ {
+				    "targets": 4,
+				    "data": "img",
+				    "render": function ( data, type, full, meta ) {
+				      return '<img src="'+data+'"/>';
+				    }
+				  } ]
 			//"sScrollX" : "100%"
 			});
 

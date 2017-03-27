@@ -14,7 +14,7 @@ public class WekaIBk implements MiningAlgorithm {
 	private IBk knnClassifier = new IBk();
 	private NearestNeighbourSearch nnSearch;
 
-	private WekaIBk(Instances trainingSet) {
+	public WekaIBk(Instances trainingSet) {
 		this.trainingSet = trainingSet;
 		this.setUpClassifier();
 	}
@@ -57,11 +57,8 @@ public class WekaIBk implements MiningAlgorithm {
 		}
 	}
 	
-	/*private Instance instanceToRecommend(Instances trainingInstances, String userID) {
-		Instance instanceToEvaluate = new DenseInstance(trainingInstances.numAttributes());
-	    instanceToEvaluate.setDataset(trainingInstances);
+	public void recommendationsToJson() {
 		
-		return new Instance();
-	}*/
+	}
 
 }

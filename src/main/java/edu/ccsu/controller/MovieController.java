@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ccsu.dao.MovieJDBCTemplate;
+import edu.ccsu.dao.MovieJDBC;
 import edu.ccsu.model.Movie;
 
 @RestController
@@ -19,7 +19,7 @@ public class MovieController {
     public String movie(@RequestParam(value="name", required=false, defaultValue="World") String name) {
 
     	ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-    	MovieJDBCTemplate studentJDBCTemplate = (MovieJDBCTemplate)context.getBean("MovieJDBCTemplate");
+    	MovieJDBC studentJDBCTemplate = (MovieJDBC)context.getBean("MovieJDBC");
 
 		System.out.println("------Listing Multiple Records--------");
 		List<Movie> movies = studentJDBCTemplate.listMovies();

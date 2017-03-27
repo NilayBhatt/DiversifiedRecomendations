@@ -12,7 +12,7 @@ public class RatingsMapper implements RowMapper<Rating> {
 		public Rating mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Rating userRating = new Rating();
 			
-			userRating.setUserName(rs.getString("userID"));
+			userRating.setUserName(rs.getString("userName"));
 			userRating.setMovieID(rs.getString("movieID"));
 			userRating.setUserRating(rs.getString("rating"));
 			

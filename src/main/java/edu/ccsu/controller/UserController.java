@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.ccsu.dao.RatingsJDBC;
 import edu.ccsu.dao.UserJDBC;
 import edu.ccsu.model.Rating;
 import edu.ccsu.model.User;
@@ -21,6 +22,7 @@ public class UserController {
 
 	private ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 	private UserJDBC userJDBC = (UserJDBC) context.getBean("UserJDBC");
+	private RatingsJDBC ratingsJDBC = (RatingsJDBC) context.getBean("RatingsJDBC");
 	
 	@CrossOrigin
 	@RequestMapping(value = "/loginV", method = RequestMethod.POST)
@@ -52,7 +54,7 @@ public class UserController {
 		try {
 			ratingBean.setUserName((String) request.getSession().getAttribute("loggedInUser"));
 			
-			if (this.userJDBC.insertRating(ratingBean)) {
+			if (this.ratingsJDBC.insertRating(ratingBean)) {
 				response.sendRedirect("/table");
 			}
 		} catch (Exception e) {

@@ -41,21 +41,6 @@ public class UserJDBC implements UserDAO {
 		return false;
 	}
 
-	public boolean insertRating(Rating rating) {
-
-		String sql = "Insert INTO userMovieRating (userName, movieID, rating) Values (?,?,?)";
-
-		try {
-			jdbcTemplateObject.update(sql, new Object[] { rating.getUserName(), rating.getMovieID(),
-					Integer.parseInt(rating.getUserRating()) });
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return false;
-	}
-
 	public boolean insertNewUser(User user) {
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO Users (userName, LastName, userPassword) VALUES (?, ?, ?)");
