@@ -6,5 +6,5 @@ import weka.core.Instance;
 
 public interface MiningAlgorithm {
 
-	TreeMap<Double, String> MakeRecommendation(Instance passedInstance);
+	TreeMap<String, Double> makeRecommendation(Instance passedInstance);
 }

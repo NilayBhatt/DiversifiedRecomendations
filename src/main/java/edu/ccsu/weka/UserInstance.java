@@ -27,7 +27,6 @@ public class UserInstance {
 		
 		Instance dummyUserInstance = new DenseInstance(trainingInstances.numAttributes());
 	    dummyUserInstance.setDataset(trainingInstances);
-	    int numRatingsGiven = 0;
 	    
 	    List<Rating> userCurrentRatings = ratingsJDBC.getCurrentUserRatings(userName);
 	    

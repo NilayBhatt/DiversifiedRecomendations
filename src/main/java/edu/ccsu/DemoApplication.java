@@ -10,6 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import edu.ccsu.helper.ClassifiersStore;
 import edu.ccsu.helper.DataPivoter;
 
 @EnableAutoConfiguration 
@@ -25,6 +26,7 @@ public class DemoApplication {
 //		} catch (FileNotFoundException e) {
 //			e.printStackTrace();
 //		}
+		ClassifiersStore store =  ClassifiersStore.getInstance();
 		SpringApplication.run(DemoApplication.class, args);
 	}
 	

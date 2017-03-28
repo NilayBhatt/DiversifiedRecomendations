@@ -23,4 +23,10 @@ public class Recommendations {
 	public void setRating(double rating) {
 		this.rating = rating;
 	}
+	@Override
+	public String toString() {
+		return "[\"" +movieTitle +"\"," + "\"" + movieId + "\" ," + "\"" + rating +"\"]";
+	}
+	
+	
 }

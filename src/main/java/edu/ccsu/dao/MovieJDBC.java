@@ -14,11 +14,8 @@ import edu.ccsu.model.Recommendations;
 
 public class MovieJDBC implements MovieDAO {
 
-    private DataSource dataSource;
-
-    
-    protected JdbcTemplate jdbcTemplateObject;
-
+	private DataSource dataSource;
+	protected JdbcTemplate jdbcTemplateObject;
     
     public void setDataSource(DataSource ds) {
         this.dataSource = ds;
@@ -29,18 +26,22 @@ public class MovieJDBC implements MovieDAO {
     public List<Movie> listMovies() {
         String SQL = "select * from dbo.movies";
         List <Movie> branches = jdbcTemplateObject.query(SQL, new MovieMapper());
+        
         return branches;
     }
     
-    public List<Recommendations> listSpecificMovies(TreeMap<Double,String> rawRecommend) {
+    public List<Recommendations> listSpecificMovies(TreeMap<String, Double> rawRecommend) {
+    	
     	StringBuilder sb = new StringBuilder();
     	sb.append("select id, title from dbo.movies where id IN (");
-    	for(Entry<Double, String> entry : rawRecommend.entrySet()) {
-    		  sb.append("'" + entry.getValue() + "',");
+    	
+    	for(Entry<String, Double> entry : rawRecommend.entrySet()) {
+    		  sb.append("'" + entry.getKey() + "',");
     	}
     	sb.deleteCharAt(sb.length()-1);
     	sb.append(")");
-        List<Recommendations> branches = jdbcTemplateObject.query(sb.toString(), new RecommendationsMapper());
+        
+    	List<Recommendations> branches = jdbcTemplateObject.query(sb.toString(), new RecommendationsMapper());
        
         return branches;
     }

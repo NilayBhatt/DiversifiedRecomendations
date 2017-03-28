@@ -14,18 +14,19 @@
    </bean>
 
    <!-- Definition for studentJDBCTemplate bean -->
-   <bean id="MovieJDBCTemplate" 
-      class="edu.ccsu.dao.MovieJDBCTemplate">
+   <bean id="MovieJDBC" 
+      class="edu.ccsu.dao.MovieJDBC">
       <property name="dataSource"  ref="dataSource" />    
    </bean>
    <bean id="UserJDBC" 
       class="edu.ccsu.dao.UserJDBC">
       <property name="dataSource"  ref="dataSource" />    
    </bean>
+   <!-- 
   <bean id="HelperJDBC" 
       class="edu.ccsu.dao.HelperJDBC">
       <property name="dataSource"  ref="dataSource" />    
-   </bean>
+   </bean> -->
    <bean id="RatingsJDBC" 
       class="edu.ccsu.dao.RatingsJDBC">
       <property name="dataSource"  ref="dataSource" />    

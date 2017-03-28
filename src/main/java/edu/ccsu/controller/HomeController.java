@@ -21,4 +21,9 @@ public class HomeController {
 	public String tablePage() {
 		return "table";
 	}
+	
+	@RequestMapping("/userRecommendations")
+	public String recommendationPage() {
+		return "userRecommendations";
+	}
 }

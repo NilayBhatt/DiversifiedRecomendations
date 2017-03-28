@@ -418,9 +418,15 @@
 				    "targets": 4,
 				    "data": "img",
 				    "render": function ( data, type, full, meta ) {
-				      return '<img src="'+data+'"/>';
+				      return '<img src="'+full[4]+'"/>';
 				    }
-				  } ]
+				  }, {
+					    "targets": 20,
+					    "data": "img",
+					    "render": function ( data, type, full, meta ) {
+					      return '<img src="'+full[20]+'"/>';
+					    }
+					  } ]
 			//"sScrollX" : "100%"
 			});
 
