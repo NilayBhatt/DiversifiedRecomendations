@@ -25,7 +25,7 @@ public class Recommendations {
 	}
 	@Override
 	public String toString() {
-		return "[\"" +movieTitle +"\"," + "\"" + movieId + "\" ," + "\"" + rating +"\"]";
+		return "[\"" +movieTitle.replace("\"", "") +"\"," + "\"" + movieId + "\" ," + "\"" + rating +"\"]";
 	}
 	
 	

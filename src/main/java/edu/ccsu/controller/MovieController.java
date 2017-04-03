@@ -20,8 +20,6 @@ import edu.ccsu.weka.UserInstance;
 import edu.ccsu.weka.WekaIBk;
 import weka.classifiers.lazy.IBk;
 import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.converters.ConverterUtils.DataSource;
 
 @RestController
 public class MovieController {
@@ -48,6 +46,7 @@ public class MovieController {
 		// sb.append(json);
 		// sb.append("}");
 		// System.out.println(sb.toString());
+
 		return sb.toString();
 
 	}

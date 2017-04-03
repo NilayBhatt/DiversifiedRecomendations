@@ -24,7 +24,7 @@ public class MovieJDBC implements MovieDAO {
 
     @Override
     public List<Movie> listMovies() {
-        String SQL = "select * from dbo.movies";
+        String SQL = "SELECT * from movies where id in (SELECT id from distinctMovies)";
         List <Movie> branches = jdbcTemplateObject.query(SQL, new MovieMapper());
         
         return branches;
@@ -33,7 +33,7 @@ public class MovieJDBC implements MovieDAO {
     public List<Recommendations> listSpecificMovies(TreeMap<String, Double> rawRecommend) {
     	
     	StringBuilder sb = new StringBuilder();
-    	sb.append("select id, title from dbo.movies where id IN (");
+    	sb.append("select id, title from dbo.distinctMovies where id IN (");
     	
     	for(Entry<String, Double> entry : rawRecommend.entrySet()) {
     		  sb.append("'" + entry.getKey() + "',");

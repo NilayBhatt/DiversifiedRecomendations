@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import edu.ccsu.model.Recommendations;
-import edu.ccsu.model.User;
 
 public class RecommendationsMapper implements RowMapper<Recommendations> {
 	   

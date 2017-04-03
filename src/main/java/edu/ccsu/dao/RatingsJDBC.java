@@ -26,7 +26,7 @@ public class RatingsJDBC {
 
 		try {
 			jdbcTemplateObject.update(sql, new Object[] { rating.getUserName(), rating.getMovieID(),
-					Integer.parseInt(rating.getUserRating()) });
+					Double.parseDouble(rating.getUserRating()) });
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

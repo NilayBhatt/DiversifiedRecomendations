@@ -2,18 +2,10 @@ package edu.ccsu.weka;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.web.bind.annotation.ModelAttribute;
-
 import edu.ccsu.dao.RatingsJDBC;
-import edu.ccsu.dao.UserJDBC;
 import edu.ccsu.model.Rating;
-import edu.ccsu.model.User;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -31,7 +23,8 @@ public class UserInstance {
 	    List<Rating> userCurrentRatings = ratingsJDBC.getCurrentUserRatings(userName);
 	    
 	    for(Rating r : userCurrentRatings) {
-	    	dummyUserInstance.setValue(Integer.parseInt(r.getMovieID()), Double.parseDouble(r.getUserRating()));
+	    	//did the divide by two to get the rating out of 5.
+	    	dummyUserInstance.setValue(trainingInstances.attribute(r.getMovieID()).index() , Double.parseDouble(r.getUserRating())/2);
 	    }
 	    
 	    return dummyUserInstance;

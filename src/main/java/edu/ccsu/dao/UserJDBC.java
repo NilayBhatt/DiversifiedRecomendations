@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import edu.ccsu.helper.UserMapper;
-import edu.ccsu.model.Rating;
 import edu.ccsu.model.User;
 
 public class UserJDBC implements UserDAO {
