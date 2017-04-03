@@ -24,7 +24,6 @@ public class WekaKStar extends MiningAlgorithm {
 
 	}
 
-
 	public List<Recommendations> recommendationsToJson(Instance passedInstance) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 		MovieJDBC movieJDBC = (MovieJDBC) context.getBean("MovieJDBC");

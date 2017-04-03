@@ -154,7 +154,6 @@
 		$(document).ready(function() {
 			var movieID;
 			var table = $('#dataTables-example').DataTable({
-				serverSide: true,
 				"ajax" : {
 					"datatype" : "jsonp",
 					"url" : "http://localhost:8080/movie",
